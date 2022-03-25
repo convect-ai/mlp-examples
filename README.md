@@ -1,2 +1,3 @@
 # mlp-examples
-Example notebooks of using convect-mlp
+
+This repo contains a collection of notebooks on how to use MLP to increase your DS dev speed.
