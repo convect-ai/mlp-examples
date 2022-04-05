@@ -1,0 +1,20 @@
+site_name: ConvectHub Documentation
+site_description: 'Documentation for ConvectHub'
+repo_url: https://github.com/convect-ai/mlp-examples
+
+
+theme:
+  name: material
+  favicon: https://convect.ai/static/convectai/images/favicon.ico
+  palette:
+      primary: indigo
+  features:
+    - toc.integrate
+
+nav:
+  - "Notebook server": sections/notebook.md
+  - Collaboration: sections/collaboration.md
+  - Dashboards: sections/dashboard.md
+  - "Scale out to computing clusters": sections/scale_out.md
+  - "From dev to production": sections/from_dev_to_prod.md
+  - Examples: sections/examples.md
