@@ -11,6 +11,26 @@ theme:
   features:
     - toc.integrate
 
+plugins:
+- i18n:
+    default_language: zh
+    languages:
+      zh:
+        name: Chinese
+        build: true
+        site_name: ConvectHub文档
+      en:
+        name: English
+        build: true
+    nav_translations:
+      zh:
+        "Notebook server": Notebook开发环境
+        Collaboration: 多人协作功能
+        Dashboards: 看板功能
+        "Scale out to computing clusters": 使用算力集群
+        "From dev to production": 从开发到生产
+        Examples: 使用案例
+
 nav:
   - "Notebook server": sections/notebook.md
   - Collaboration: sections/collaboration.md
