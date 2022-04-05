@@ -1,0 +1,534 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for ConvectHub">
+      
+      
+      
+      <link rel="icon" href="https://convect.ai/static/convectai/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>Scale out to computing clusters - ConvectHub Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scale-out-to-computing-clusters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ConvectHub Documentation" class="md-header__button md-logo" aria-label="ConvectHub Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ConvectHub Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scale out to computing clusters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../../sections/scale_out/" hreflang="zh" class="md-select__link">
+                    Chinese
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="./" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/convect-ai/mlp-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ConvectHub Documentation" class="md-nav__button md-logo" aria-label="ConvectHub Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ConvectHub Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/convect-ai/mlp-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebook/" class="md-nav__link">
+        Notebook server
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collaboration/" class="md-nav__link">
+        Collaboration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
+        Dashboards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Scale out to computing clusters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Scale out to computing clusters
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-dask-gateway" class="md-nav__link">
+    Using Dask gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execute-notebook-as-a-remote-job" class="md-nav__link">
+    Execute notebook as a remote job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose-notebooks-into-a-pipeline" class="md-nav__link">
+    Compose notebooks into a pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-prebuilt-components-in-a-pipeline" class="md-nav__link">
+    Using prebuilt components in a pipeline
+  </a>
+  
+    <nav class="md-nav" aria-label="Using prebuilt components in a pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-a-prebuilt-component" class="md-nav__link">
+    Importing a prebuilt component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-prebuilt-component" class="md-nav__link">
+    Using a prebuilt component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../from_dev_to_prod/" class="md-nav__link">
+        From dev to production
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/convect-ai/mlp-examples/edit/master/docs/sections/scale_out.en.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="scale-out-to-computing-clusters">Scale out to computing clusters</h1>
+<p>Sometimes your need to deal with large volume of data and relying on a single machine is simply too slow or restricted for such tasks. </p>
+<p>Or you have developed a machine learning procedure using CPU on your local dev server and would like to run it using GPU in production. </p>
+<p>Or you would like to experiment thousands of parameter combinations for the same model by running them in parallel. </p>
+<p>Under the above circumstances, it is common to scale your local work out to elastic remote computing resources. ConvectHub has provided several ways to achieve such tasks.</p>
+<h2 id="using-dask-gateway">Using Dask gateway</h2>
+<p><a href="https://dask.org/">Dask</a> is lightweight distributed computing framework written in python and allow runing python code utilizing multiple machines with/without miminal code change.</p>
+<p>ConvectHub allows users to start and connect on-demand dask clusters.</p>
+<p>To start a cluster, execute the following code from your notebook</p>
+<pre><code class="language-python">from dask_gateway import Gateway
+gateway = Gateway()
+
+options = gateway.cluster_options()
+options
+</code></pre>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled.png" /></p>
+<p>Once the desired settings have been chosen the user creates a cluster (launches a dask scheduler).</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%201.png" /></p>
+<pre><code class="language-python">cluster = gateway.new_cluster(options)
+cluster
+</code></pre>
+<p>The user is presented with a GUI to scale up the number of workers. At first, users start with <code>0</code> workers. In addition you can scale up via Python functions. Additionally the GUI has a <code>dashboard</code> link that you can click to view <a href="https://docs.dask.org/en/latest/diagnostics-distributed.html">cluster diagnostics</a>. This link is especially useful for debugging and benchmarking.</p>
+<pre><code class="language-python">cluster.scale(1)
+</code></pre>
+<p>Once you have created a cluster and scaled to an appropriate number of workers we can grab our dask client to start the computation. You may also use the cluster menu with the dashboard link to scale the number of workers.</p>
+<pre><code class="language-python">client = cluster.get_client()
+</code></pre>
+<p>Finally let’s do an example calculation to prove that everything works.</p>
+<pre><code class="language-python">import dask.array as da
+x = da.random.random((10000, 10000), chunks=(1000, 1000))
+y = x + x.T
+z = y[::2, 5000:].mean(axis=1)
+z.compute()
+</code></pre>
+<p>If a result was returned, your cluster is working.</p>
+<p>For more details to utilize dask framework to expedite your computing workloads, see their <a href="https://docs.dask.org/en/latest/">doc</a>.</p>
+<h2 id="execute-notebook-as-a-remote-job">Execute notebook as a remote job</h2>
+<p>Users can submit a notebook to be executed as a remote job. This is useful for example when</p>
+<ol>
+<li>Users want to evaluate massive amount of jobs with almost identical setups, e.g., a machine learning training procedure with different model parameters. Running those jobs using one machine is too time consuming.</li>
+<li>Users want to utilize remote computing resources. For example, running a job remotely with more CPU and memory resources.</li>
+</ol>
+<p>To submit a notebook to be executed remotely, click <code>Run as pipeline</code> button on the top toolbar</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%202.png" /></p>
+<p>Select the docker image to use as the runtime environment. As a best practice, you should keep the remote runtime image to be as consistent as your local python environment. Specify the resource needed for the remote container that executes the notebook.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%203.png" /></p>
+<p>Once successfully submitted, you can view the executing details by follow the link.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%204.png" /></p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%205.png" /></p>
+<p>You can download the generated notebook by following the object link path.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%206.png" /></p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%207.png" /></p>
+<h2 id="compose-notebooks-into-a-pipeline">Compose notebooks into a pipeline</h2>
+<p>You can combine and orchestra several notebooks into a reproducible pipeline. This is useful when you have a complex task that can be decomposed into multiple procedures. For example, a machine learning model development task can be roughly divided into data processing, feature engineering, model training and evaluation. Under such a scenario, you can utilize several notebooks where each one of them is dedicated to one subtask of the large task for better code maintenance and management.</p>
+<p>To create a new pipeline, select “Generic pipeline editor” from the launcher. Then drag and drop existing notebooks from the file browser on the left into the main editing area. Connect two notebooks together to specify a dependency relationship between them.</p>
+<p>You can right click on each individual notebook node and specify details on how to execute them such as runtime images, computing resources, just like what is done in executing a notebook as a remote job.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%208.png" /></p>
+<p>Once done, click “Run pipeline” to submit the pipeline as a job.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%209.png" /></p>
+<p>You can follow the run link to view the execution details as mentioned in remote execution section, and download generated notebooks as needed.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%2010.png" /></p>
+<h2 id="using-prebuilt-components-in-a-pipeline">Using prebuilt components in a pipeline</h2>
+<p>When composing a pipeline, it is useful to reuse some prebuilt components that are deisgned for specific tasks. For example, a procedure that takes in sales data for products and trains a machine learning model that predict the future sales. This helps to expedite the development speed of data science solutions significantly. </p>
+<p>ConvectHub supports importing <a href="https://www.kubeflow.org/docs/components/pipelines/sdk/component-development/">kubeflow pipeline components</a>.</p>
+<h3 id="importing-a-prebuilt-component">Importing a prebuilt component</h3>
+<p>To import a prebuilt component, first locate the URL that points to the component definition yaml file. For example, <a href="https://raw.githubusercontent.com/kubeflow/pipelines/master/components/contrib/XGBoost/Train_and_cross-validate_regression/from_CSV/component.yaml">https://raw.githubusercontent.com/kubeflow/pipelines/master/components/contrib/XGBoost/Train_and_cross-validate_regression/from_CSV/component.yaml</a> is a prebuilt component that trains a xgboost model from a csv file.</p>
+<p>Select add “New URL Component Catalog” from the component management page and add the URLs under the “Configuration” section.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%2011.png" /></p>
+<h3 id="using-a-prebuilt-component">Using a prebuilt component</h3>
+<p>Once imported, create a new pipeline from launcher by clicking “Kubeflow Pipeline Editor”</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%2012.png" /></p>
+<p>You will be able to view the imported components from the left toolbar and drag and drop them into the editing area as needed. Right click on the nodes can enable editing the execution details about them, such as input parameters, computing resources needed, runtime images.</p>
+<p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%2013.png" /></p>
+<p>You can combine prebuilt components with normal notebooks to form a more complex pipeline.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../dashboard/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dashboards" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Dashboards
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../from_dev_to_prod/" class="md-footer__link md-footer__link--next" aria-label="Next: From dev to production" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              From dev to production
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["toc.integrate"], "search": "../../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+    
+  </body>
+</html>
