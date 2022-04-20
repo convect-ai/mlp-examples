@@ -16,6 +16,20 @@ You can use the server as a normal [JupyterLab](https://jupyterlab.readthedocs.i
 
 ![Main environment](Notebook%20s%20b4d80/Untitled%202.png)
 
+
+### GPU instances
+
+To start a Jupyter Server with GPU, when prompted with the server specifications, choose the one with GPU. 
+
+![GPU spec](Notebook%20s%20b4d80/select-gpu-server.png)
+
+Once you are redirected into the server, launch a terminal app, execute `nvidia-smi` and you will see the GPU you are assigned to. 
+
+![nvidia-smi](Notebook%20s%20b4d80/nvidia-smi.png)
+
+You can use `conda` to install `cudatoolkit` and frameworks that support GPU like `pytorch` or `tensorflow` to start running workloads on GPU.
+
+
 ## Managing dependencies and environment
 
 The managed Jupyter Server comes with pre-shipped python environments that include the most common used data science packages such as pandas, scikit-learn. To start using an environment as the Jupyter kernel, just choose it from the launcher. 

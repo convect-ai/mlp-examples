@@ -16,6 +16,18 @@
 
 ![Main environment](Notebook%20s%20b4d80/Untitled%202.png)
 
+### GPU实例
+
+如需选择带有GPU的Jupyter Server开发环境，在服务器资源规格选择页面，选择带有GPU的规格。
+
+![GPU spec](Notebook%20s%20b4d80/select-gpu-server.png)
+
+进入Jupyuter Server之后，在终端中运行`nvidia-smi`可以验证被分配到的GPU状态。
+
+![nvidia-smi](Notebook%20s%20b4d80/nvidia-smi.png)
+
+可以使用`conda`来安装`cudatoolkit`，配合支持GPU的计算框架，就可以使用GPU来做深度学习任务了。
+
 ## 管理python依赖和环境
 
 默认的python开发环境已经包含了一些最常见的数据科学包，例如pandas，scikit-learn等。在启动一个notebook的时候，可以在启动器里面选择相应的环境作为运行该notebook的kernel。
