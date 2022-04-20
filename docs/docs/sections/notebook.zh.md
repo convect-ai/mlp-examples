@@ -110,4 +110,9 @@ SFTP的连接方法类似，只需要将端口号改为`8023`.
 
 我们也支持使用Rstudio来开发R语言的代码。
 
+启动的方法和VScode相同，在启动器选择Rstudio选项，随后程序会自动跳转。
+
+![RStudio support](Notebook%20s%20b4d80/rstudio-launcher.png)
+![RStudio env](Notebook%20s%20b4d80/rstudio-ide.png)
+
 我们也支持直接从本地，利用做远端开发的IDE例如PyCharm，VSCode直接连接服务器进行开发。

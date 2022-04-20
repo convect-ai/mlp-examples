@@ -111,6 +111,14 @@ You will be automatically redirected to VSCode once it is started.
 
 ![VSCode env](Notebook%20s%20b4d80/Untitled%206.png)
 
-Rstudio support is WIP for R language users.
+Rstudio is also supported. To launch one, choose Rstudio from the launcher.
+
+![RStudio support](Notebook%20s%20b4d80/rstudio-launcher.png)
+
+You will be automatically redirected to RStudio once it is started.
+
+![RStudio env](Notebook%20s%20b4d80/rstudio-ide.png)
 
 Alternatively, you can utilize the SSH access to your server and use local IDEs that supports remote dev mode such as VScode and PyCharm to connect to the server.
+
+
