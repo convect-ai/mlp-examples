@@ -241,6 +241,19 @@
     启动环境
   </a>
   
+    <nav class="md-nav" aria-label="启动环境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    GPU实例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -381,6 +394,12 @@
 <p><img alt="Server starting" src="../Notebook%20s%20b4d80/Untitled%201.png" /></p>
 <p>进入环境后，使用方法同正常的<a href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a>。</p>
 <p><img alt="Main environment" src="../Notebook%20s%20b4d80/Untitled%202.png" /></p>
+<h3 id="gpu">GPU实例</h3>
+<p>如需选择带有GPU的Jupyter Server开发环境，在服务器资源规格选择页面，选择带有GPU的规格。</p>
+<p><img alt="GPU spec" src="../Notebook%20s%20b4d80/select-gpu-server.png" /></p>
+<p>进入Jupyuter Server之后，在终端中运行<code>nvidia-smi</code>可以验证被分配到的GPU状态。</p>
+<p><img alt="nvidia-smi" src="../Notebook%20s%20b4d80/nvidia-smi.png" /></p>
+<p>可以使用<code>conda</code>来安装<code>cudatoolkit</code>，配合支持GPU的计算框架，就可以使用GPU来做深度学习任务了。</p>
 <h2 id="python">管理python依赖和环境</h2>
 <p>默认的python开发环境已经包含了一些最常见的数据科学包，例如pandas，scikit-learn等。在启动一个notebook的时候，可以在启动器里面选择相应的环境作为运行该notebook的kernel。</p>
 <p>在编辑的过程中，通过点击右上角的kernel指示器，也可以动态的切换运行的kernel。</p>

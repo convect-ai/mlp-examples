@@ -241,6 +241,19 @@
     Start a server
   </a>
   
+    <nav class="md-nav" aria-label="Start a server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-instances" class="md-nav__link">
+    GPU instances
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -381,6 +394,12 @@
 <p><img alt="Server starting" src="../Notebook%20s%20b4d80/Untitled%201.png" /></p>
 <p>You can use the server as a normal <a href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> environment.</p>
 <p><img alt="Main environment" src="../Notebook%20s%20b4d80/Untitled%202.png" /></p>
+<h3 id="gpu-instances">GPU instances</h3>
+<p>To start a Jupyter Server with GPU, when prompted with the server specifications, choose the one with GPU. </p>
+<p><img alt="GPU spec" src="../Notebook%20s%20b4d80/select-gpu-server.png" /></p>
+<p>Once you are redirected into the server, launch a terminal app, execute <code>nvidia-smi</code> and you will see the GPU you are assigned to. </p>
+<p><img alt="nvidia-smi" src="../Notebook%20s%20b4d80/nvidia-smi.png" /></p>
+<p>You can use <code>conda</code> to install <code>cudatoolkit</code> and frameworks that support GPU like <code>pytorch</code> or <code>tensorflow</code> to start running workloads on GPU.</p>
 <h2 id="managing-dependencies-and-environment">Managing dependencies and environment</h2>
 <p>The managed Jupyter Server comes with pre-shipped python environments that include the most common used data science packages such as pandas, scikit-learn. To start using an environment as the Jupyter kernel, just choose it from the launcher. </p>
 <p>You can also change the kernel while editing a notebook by clicking on the upper right corner kernel indicator button and choose one from the dropdown menu.</p>
