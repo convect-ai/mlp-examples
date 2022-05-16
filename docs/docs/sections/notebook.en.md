@@ -119,6 +119,17 @@ You will be automatically redirected to RStudio once it is started.
 
 ![RStudio env](Notebook%20s%20b4d80/rstudio-ide.png)
 
-Alternatively, you can utilize the SSH access to your server and use local IDEs that supports remote dev mode such as VScode and PyCharm to connect to the server.
+Currently ssh remote plugins of VSCode and PyCharm is not supported. We encourage users to use the web-based IDEs mentioned above.
 
 
+## Using tensorboard
+
+To use tensorboard in the JupyterLab environment, simply execute the below in a cell
+
+```
+%load_ext tensorboard
+
+%tensorboard --logdir <YOUR_LOG_DIR>
+```
+
+![Tensorboard](Notebook%20s%20b4d80/tensorboard.png)

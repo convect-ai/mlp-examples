@@ -131,3 +131,92 @@ You will be able to view the imported components from the left toolbar and drag 
 ![Untitled](Scale%20out%20%20939ed/Untitled%2013.png)
 
 You can combine prebuilt components with normal notebooks to form a more complex pipeline.
+
+## Distributed GPU training
+
+It's common to use multiple GPUs to accelerate machine learning training workloads especially when dealing with large-scale deep learning models. 
+We support distributed training workloads through [Kubeflow Training Operators](https://www.kubeflow.org/docs/components/training/).
+The most common frameworks are supported. 
+
+To submit a distributed training job, roughly we need the following steps: 1. package your code in a docker image; 2. write a yaml config to describe your training environment; 3. submit and wait for your job to finish.
+
+For example, to train a classification model on MNIST using PyTorch, we first package our [training script `mnist.py`](https://github.com/kubeflow/training-operator/blob/master/examples/pytorch/mnist/mnist.py) into a docker image.
+
+```Dockerfile
+FROM pytorch/pytorch:1.0-cuda10.0-cudnn7-runtime
+
+RUN pip install tensorboardX==1.6.0
+RUN mkdir -p /opt/mnist
+
+WORKDIR /opt/mnist/src
+ADD mnist.py /opt/mnist/src/mnist.py
+
+RUN  chgrp -R 0 /opt/mnist \
+  && chmod -R g+rwX /opt/mnist
+
+ENTRYPOINT ["python", "/opt/mnist/src/mnist.py"]
+```
+
+Then build and push it to a registry.
+
+```sh
+docker build . -t mnist-simple:latest
+
+
+docker tag mnist-simple:latest <YOUR_REPO>/mnist-simple:latest
+docker push <YOUR_REPO>/mnist-simple:latest
+```
+
+Once finished, we declare a training job by writing an yaml config `job.yaml`
+
+```yaml
+apiVersion: "kubeflow.org/v1"
+kind: "PyTorchJob"
+metadata:
+  name: "pytorch-dist-mnist-nccl"
+spec:
+  pytorchReplicaSpecs:
+    Master:
+      replicas: 1
+      restartPolicy: OnFailure
+      template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: "false"
+        spec:
+          containers:
+            - name: pytorch
+        image: <YOUR_REPO>/mnist-simple:latest
+              args: ["--backend", "nccl"]
+              resources: 
+                limits:
+                  nvidia.com/gpu: 1
+    Worker:
+      replicas: 1
+      restartPolicy: OnFailure
+      template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: "false"
+        spec:
+          containers: 
+            - name: pytorch
+              image: <YOUR_REPO>/mnist-simple:latest
+              args: ["--backend", "nccl"]
+              resources: 
+                limits:
+                  nvidia.com/gpu: 1
+```
+This is going to spwan up 1 master and 1 worker both having 1 gpu for the training job.
+
+Then submit the job via command line.
+```sh
+kubectl create -f job.yaml
+```
+
+You can monitor the status of the job by 
+```sh
+kubectl get -o yaml pytorchjobs pytorch-simple
+```
+
+We encourage users to refer to the [Training Operators Doc](https://github.com/kubeflow/training-operator) to learn more about how to use the framework.
