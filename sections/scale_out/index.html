@@ -330,13 +330,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#distributed-gpu-training" class="md-nav__link">
-    Distributed GPU training
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#gpu" class="md-nav__link">
     分布式GPU训练
   </a>
@@ -473,7 +466,6 @@ z.compute()
 <p>在左边的工具栏上，可以看到刚才导入的预制组件，我们可以将它们拖拽到编辑区。右键详情编辑，可以设置组件节点的运行环境，资源和参数。</p>
 <p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%2013.png" /></p>
 <p>我们可以将这些组件和Notebook节点组合使用，从而生成更加复杂的管道任务。</p>
-<h2 id="distributed-gpu-training">Distributed GPU training</h2>
 <h2 id="gpu">分布式GPU训练</h2>
 <p>当我们训练大型机器学习模型时，使用多块GPU是分厂常见的。我们支持使用<a href="https://www.kubeflow.org/docs/components/training/">Kubeflow Training Operators</a>，来完成分布式GPU训练。</p>
 <p>提交一个分布式任务一般分为三个步骤：1. 将分布式训练代码打包为一个docker镜像；2. 通过yaml文件描述训练所需要的环境，例如GPU的数量，计算资源的需求等；3. 提交并且等待任务完成。</p>
