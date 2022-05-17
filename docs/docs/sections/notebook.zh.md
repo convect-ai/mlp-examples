@@ -115,4 +115,15 @@ SFTP的连接方法类似，只需要将端口号改为`8023`.
 ![RStudio support](Notebook%20s%20b4d80/rstudio-launcher.png)
 ![RStudio env](Notebook%20s%20b4d80/rstudio-ide.png)
 
-我们也支持直接从本地，利用做远端开发的IDE例如PyCharm，VSCode直接连接服务器进行开发。
+我们暂时不支持利用做远端开发的IDE例如PyCharm，VSCode直接连接服务器进行开发。
+
+## 使用tensorboard
+
+如需使用tensorboard，直接在JupyterLab环境中运行
+```
+%load_ext tensorboard
+
+%tensorboard --logdir <YOUR_LOG_DIR>
+```
+
+![Tensorboard](Notebook%20s%20b4d80/tensorboard.png)
