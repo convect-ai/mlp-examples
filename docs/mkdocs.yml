@@ -38,3 +38,8 @@ nav:
   - "Scale out to computing clusters": sections/scale_out.md
   - "From dev to production": sections/from_dev_to_prod.md
   - Examples: sections/examples.md
+
+extra:
+  analytics:
+    provider: google
+    property: G-781LZNZBTS
