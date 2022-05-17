@@ -284,6 +284,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-tensorboard" class="md-nav__link">
+    Using tensorboard
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -387,7 +394,7 @@
 
 <h1 id="notebook-server">Notebook server</h1>
 <h2 id="start-a-server">Start a server</h2>
-<p>To start a Jupyter Server, log into ConvecHub and click “Start server” if you do not have one, or “My server” if a server already exists. </p>
+<p>To start a Jupyter Server, log into ConvectHub and click “Start server” if you do not have one, or “My server” if a server already exists. </p>
 <p>Once prompted, choose the specifications of the server that suits your need.</p>
 <p><img alt="Select server spec" src="../Notebook%20s%20b4d80/Untitled.png" /></p>
 <p>Wait until the server is started, you will be automatically redirected to it. </p>
@@ -404,11 +411,11 @@
 <p>The managed Jupyter Server comes with pre-shipped python environments that include the most common used data science packages such as pandas, scikit-learn. To start using an environment as the Jupyter kernel, just choose it from the launcher. </p>
 <p>You can also change the kernel while editing a notebook by clicking on the upper right corner kernel indicator button and choose one from the dropdown menu.</p>
 <p><img alt="Select kernel" src="../Notebook%20s%20b4d80/Untitled%203.png" /></p>
-<p>You can install additional packages into the enviornment if needed. To do so, launch a terminal app from the launcher and use <code>conda</code> to install packages. For example,</p>
+<p>You can install additional packages into the environment if needed. To do so, launch a terminal app from the launcher and use <code>conda</code> to install packages. For example,</p>
 <pre><code class="language-bash">conda activate default
 conda install pytorch torchvision torchaudio cpuonly -c pytorch
 </code></pre>
-<p>You can also create new conda environement by </p>
+<p>You can also create new conda environnement by </p>
 <pre><code class="language-bash">conda create -n my-conda-env python==3.9
 conda activate my-conda-env
 # install more packages
@@ -453,7 +460,14 @@ convect-user@jupyter-yuhui-40convect-2eai:~$ echo 'I am on the remote server'
 <p><img alt="RStudio support" src="../Notebook%20s%20b4d80/rstudio-launcher.png" /></p>
 <p>You will be automatically redirected to RStudio once it is started.</p>
 <p><img alt="RStudio env" src="../Notebook%20s%20b4d80/rstudio-ide.png" /></p>
-<p>Alternatively, you can utilize the SSH access to your server and use local IDEs that supports remote dev mode such as VScode and PyCharm to connect to the server.</p>
+<p>Currently ssh remote plugins of VSCode and PyCharm is not supported. We encourage users to use the web-based IDEs mentioned above.</p>
+<h2 id="using-tensorboard">Using tensorboard</h2>
+<p>To use tensorboard in the JupyterLab environment, simply execute the below in a cell</p>
+<pre><code>%load_ext tensorboard
+
+%tensorboard --logdir &lt;YOUR_LOG_DIR&gt;
+</code></pre>
+<p><img alt="Tensorboard" src="../Notebook%20s%20b4d80/tensorboard.png" /></p>
 
               
             </article>

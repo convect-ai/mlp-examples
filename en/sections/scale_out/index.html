@@ -329,6 +329,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#distributed-gpu-training" class="md-nav__link">
+    Distributed GPU training
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -391,7 +398,7 @@
 <p>Or you would like to experiment thousands of parameter combinations for the same model by running them in parallel. </p>
 <p>Under the above circumstances, it is common to scale your local work out to elastic remote computing resources. ConvectHub has provided several ways to achieve such tasks.</p>
 <h2 id="using-dask-gateway">Using Dask gateway</h2>
-<p><a href="https://dask.org/">Dask</a> is lightweight distributed computing framework written in python and allow runing python code utilizing multiple machines with/without miminal code change.</p>
+<p><a href="https://dask.org/">Dask</a> is lightweight distributed computing framework written in python and allow runing python code utilizing multiple machines with/without minimal code change.</p>
 <p>ConvectHub allows users to start and connect on-demand dask clusters.</p>
 <p>To start a cluster, execute the following code from your notebook</p>
 <pre><code class="language-python">from dask_gateway import Gateway
@@ -447,7 +454,7 @@ z.compute()
 <p>You can follow the run link to view the execution details as mentioned in remote execution section, and download generated notebooks as needed.</p>
 <p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%2010.png" /></p>
 <h2 id="using-prebuilt-components-in-a-pipeline">Using prebuilt components in a pipeline</h2>
-<p>When composing a pipeline, it is useful to reuse some prebuilt components that are deisgned for specific tasks. For example, a procedure that takes in sales data for products and trains a machine learning model that predict the future sales. This helps to expedite the development speed of data science solutions significantly. </p>
+<p>When composing a pipeline, it is useful to reuse some prebuilt components that are designed for specific tasks. For example, a procedure that takes in sales data for products and trains a machine learning model that predict the future sales. This helps to expedite the development speed of data science solutions significantly. </p>
 <p>ConvectHub supports importing <a href="https://www.kubeflow.org/docs/components/pipelines/sdk/component-development/">kubeflow pipeline components</a>.</p>
 <h3 id="importing-a-prebuilt-component">Importing a prebuilt component</h3>
 <p>To import a prebuilt component, first locate the URL that points to the component definition yaml file. For example, <a href="https://raw.githubusercontent.com/kubeflow/pipelines/master/components/contrib/XGBoost/Train_and_cross-validate_regression/from_CSV/component.yaml">https://raw.githubusercontent.com/kubeflow/pipelines/master/components/contrib/XGBoost/Train_and_cross-validate_regression/from_CSV/component.yaml</a> is a prebuilt component that trains a xgboost model from a csv file.</p>
@@ -459,6 +466,78 @@ z.compute()
 <p>You will be able to view the imported components from the left toolbar and drag and drop them into the editing area as needed. Right click on the nodes can enable editing the execution details about them, such as input parameters, computing resources needed, runtime images.</p>
 <p><img alt="Untitled" src="../Scale%20out%20%20939ed/Untitled%2013.png" /></p>
 <p>You can combine prebuilt components with normal notebooks to form a more complex pipeline.</p>
+<h2 id="distributed-gpu-training">Distributed GPU training</h2>
+<p>It's common to use multiple GPUs to accelerate machine learning training workloads especially when dealing with large-scale deep learning models. 
+We support distributed training workloads through <a href="https://www.kubeflow.org/docs/components/training/">Kubeflow Training Operators</a>.
+The most common frameworks are supported. </p>
+<p>To submit a distributed training job, roughly we need the following steps: 1. package your code in a docker image; 2. write a yaml config to describe your training environment; 3. submit and wait for your job to finish.</p>
+<p>For example, to train a classification model on MNIST using PyTorch, we first package our <a href="https://github.com/kubeflow/training-operator/blob/master/examples/pytorch/mnist/mnist.py">training script <code>mnist.py</code></a> into a docker image.</p>
+<pre><code class="language-Dockerfile">FROM pytorch/pytorch:1.0-cuda10.0-cudnn7-runtime
+
+RUN pip install tensorboardX==1.6.0
+RUN mkdir -p /opt/mnist
+
+WORKDIR /opt/mnist/src
+ADD mnist.py /opt/mnist/src/mnist.py
+
+RUN  chgrp -R 0 /opt/mnist \
+  &amp;&amp; chmod -R g+rwX /opt/mnist
+
+ENTRYPOINT [&quot;python&quot;, &quot;/opt/mnist/src/mnist.py&quot;]
+</code></pre>
+<p>Then build and push it to a registry.</p>
+<pre><code class="language-sh">docker build . -t mnist-simple:latest
+
+
+docker tag mnist-simple:latest &lt;YOUR_REPO&gt;/mnist-simple:latest
+docker push &lt;YOUR_REPO&gt;/mnist-simple:latest
+</code></pre>
+<p>Once finished, we declare a training job by writing an yaml config <code>job.yaml</code></p>
+<pre><code class="language-yaml">apiVersion: &quot;kubeflow.org/v1&quot;
+kind: &quot;PyTorchJob&quot;
+metadata:
+  name: &quot;pytorch-dist-mnist-nccl&quot;
+spec:
+  pytorchReplicaSpecs:
+    Master:
+      replicas: 1
+      restartPolicy: OnFailure
+      template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: &quot;false&quot;
+        spec:
+          containers:
+            - name: pytorch
+        image: &lt;YOUR_REPO&gt;/mnist-simple:latest
+              args: [&quot;--backend&quot;, &quot;nccl&quot;]
+              resources: 
+                limits:
+                  nvidia.com/gpu: 1
+    Worker:
+      replicas: 1
+      restartPolicy: OnFailure
+      template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: &quot;false&quot;
+        spec:
+          containers: 
+            - name: pytorch
+              image: &lt;YOUR_REPO&gt;/mnist-simple:latest
+              args: [&quot;--backend&quot;, &quot;nccl&quot;]
+              resources: 
+                limits:
+                  nvidia.com/gpu: 1
+</code></pre>
+<p>This is going to spawn up 1 master and 1 worker both having 1 gpu for the training job.</p>
+<p>Then submit the job via command line.</p>
+<pre><code class="language-sh">kubectl create -f job.yaml
+</code></pre>
+<p>You can monitor the status of the job by </p>
+<pre><code class="language-sh">kubectl get -o yaml pytorchjobs pytorch-simple
+</code></pre>
+<p>We encourage users to refer to the <a href="https://github.com/kubeflow/training-operator">Training Operators Doc</a> to learn more about how to use the framework.</p>
 
               
             </article>

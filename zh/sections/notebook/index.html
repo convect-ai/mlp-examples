@@ -284,6 +284,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tensorboard" class="md-nav__link">
+    使用tensorboard
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -452,7 +459,14 @@ convect-user@jupyter-yuhui-40convect-2eai:~$ echo 'I am on the remote server'
 <p>启动的方法和VScode相同，在启动器选择Rstudio选项，随后程序会自动跳转。</p>
 <p><img alt="RStudio support" src="../Notebook%20s%20b4d80/rstudio-launcher.png" />
 <img alt="RStudio env" src="../Notebook%20s%20b4d80/rstudio-ide.png" /></p>
-<p>我们也支持直接从本地，利用做远端开发的IDE例如PyCharm，VSCode直接连接服务器进行开发。</p>
+<p>我们暂时不支持利用做远端开发的IDE例如PyCharm，VSCode直接连接服务器进行开发。</p>
+<h2 id="tensorboard">使用tensorboard</h2>
+<p>如需使用tensorboard，直接在JupyterLab环境中运行</p>
+<pre><code>%load_ext tensorboard
+
+%tensorboard --logdir &lt;YOUR_LOG_DIR&gt;
+</code></pre>
+<p><img alt="Tensorboard" src="../Notebook%20s%20b4d80/tensorboard.png" /></p>
 
               
             </article>
