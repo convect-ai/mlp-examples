@@ -136,7 +136,6 @@ ConvectHub支持导入任意[kubeflow pipeline components](https://www.kubeflow.
 
 我们可以将这些组件和Notebook节点组合使用，从而生成更加复杂的管道任务。
 
-## Distributed GPU training
 ## 分布式GPU训练
 
 当我们训练大型机器学习模型时，使用多块GPU是分厂常见的。我们支持使用[Kubeflow Training Operators](https://www.kubeflow.org/docs/components/training/)，来完成分布式GPU训练。
