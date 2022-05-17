@@ -10,7 +10,7 @@ Under the above circumstances, it is common to scale your local work out to elas
 
 ## Using Dask gateway
 
-[Dask](https://dask.org/) is lightweight distributed computing framework written in python and allow runing python code utilizing multiple machines with/without miminal code change.
+[Dask](https://dask.org/) is lightweight distributed computing framework written in python and allow runing python code utilizing multiple machines with/without minimal code change.
 
 ConvectHub allows users to start and connect on-demand dask clusters.
 
@@ -108,7 +108,7 @@ You can follow the run link to view the execution details as mentioned in remote
 
 ## Using prebuilt components in a pipeline
 
-When composing a pipeline, it is useful to reuse some prebuilt components that are deisgned for specific tasks. For example, a procedure that takes in sales data for products and trains a machine learning model that predict the future sales. This helps to expedite the development speed of data science solutions significantly. 
+When composing a pipeline, it is useful to reuse some prebuilt components that are designed for specific tasks. For example, a procedure that takes in sales data for products and trains a machine learning model that predict the future sales. This helps to expedite the development speed of data science solutions significantly. 
 
 ConvectHub supports importing [kubeflow pipeline components](https://www.kubeflow.org/docs/components/pipelines/sdk/component-development/).
 
@@ -207,7 +207,7 @@ spec:
                 limits:
                   nvidia.com/gpu: 1
 ```
-This is going to spwan up 1 master and 1 worker both having 1 gpu for the training job.
+This is going to spawn up 1 master and 1 worker both having 1 gpu for the training job.
 
 Then submit the job via command line.
 ```sh

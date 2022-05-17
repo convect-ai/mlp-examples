@@ -10,7 +10,7 @@
 
 ## 使用Dask gateway
 
-[Dask](https://dask.org/) 是一个轻量化的并行计算框架。本地的代码只需经过很少的改动就可以运行在分布式的环境中。is lightweight distributed computing framework written in python and allow runing python code utilizing multiple machines with/without miminal code change.
+[Dask](https://dask.org/) 是一个轻量化的并行计算框架。本地的代码只需经过很少的改动就可以运行在分布式的环境中。is lightweight distributed computing framework written in python and allow running python code utilizing multiple machines with/without minimal code change.
 
 ConvectHub支持用户按需启动dask集群来加速运算。
 
@@ -137,14 +137,13 @@ ConvectHub支持导入任意[kubeflow pipeline components](https://www.kubeflow.
 我们可以将这些组件和Notebook节点组合使用，从而生成更加复杂的管道任务。
 
 ## Distributed GPU training
+## 分布式GPU训练
 
-It's common to use multiple GPUs to accelerate machine learning training workloads especially when dealing with large-scale deep learning models. 
-We support distributed training workloads through [Kubeflow Training Operators](https://www.kubeflow.org/docs/components/training/).
-The most common frameworks are supported. 
+当我们训练大型机器学习模型时，使用多块GPU是分厂常见的。我们支持使用[Kubeflow Training Operators](https://www.kubeflow.org/docs/components/training/)，来完成分布式GPU训练。
 
-To submit a distributed training job, roughly we need the following steps: 1. package your code in a docker image; 2. write a yaml config to describe your training environment; 3. submit and wait for your job to finish.
+提交一个分布式任务一般分为三个步骤：1. 将分布式训练代码打包为一个docker镜像；2. 通过yaml文件描述训练所需要的环境，例如GPU的数量，计算资源的需求等；3. 提交并且等待任务完成。
 
-For example, to train a classification model on MNIST using PyTorch, we first package our [training script `mnist.py`](https://github.com/kubeflow/training-operator/blob/master/examples/pytorch/mnist/mnist.py) into a docker image.
+例如，如需分布式训练一个MNIST的分类器，首先我们将训练所需的[脚本代码](https://github.com/kubeflow/training-operator/blob/master/examples/pytorch/mnist/mnist.py)通过docker打包。
 
 ```Dockerfile
 FROM pytorch/pytorch:1.0-cuda10.0-cudnn7-runtime
@@ -160,8 +159,7 @@ RUN  chgrp -R 0 /opt/mnist \
 
 ENTRYPOINT ["python", "/opt/mnist/src/mnist.py"]
 ```
-
-Then build and push it to a registry.
+随后将该镜像推送到registry。
 
 ```sh
 docker build . -t mnist-simple:latest
@@ -171,7 +169,7 @@ docker tag mnist-simple:latest <YOUR_REPO>/mnist-simple:latest
 docker push <YOUR_REPO>/mnist-simple:latest
 ```
 
-Once finished, we declare a training job by writing an yaml config `job.yaml`
+完成后，我们定义如下的一个任务配置 `job.yaml`
 
 ```yaml
 apiVersion: "kubeflow.org/v1"
@@ -211,16 +209,15 @@ spec:
                 limits:
                   nvidia.com/gpu: 1
 ```
-This is going to spwan up 1 master and 1 worker both having 1 gpu for the training job.
-
-Then submit the job via command line.
+我们在如上的配置中声明使用一个master和一个worker节点，它们各自有一个GPU。
+随后通过命令行提交任务
 ```sh
 kubectl create -f job.yaml
 ```
 
-You can monitor the status of the job by 
+可以通过如下的命令来监视提交任务的状态
 ```sh
 kubectl get -o yaml pytorchjobs pytorch-simple
 ```
 
-We encourage users to refer to the [Training Operators Doc](https://github.com/kubeflow/training-operator) to learn more about how to use the framework.
+欲了解更多使用[Training Operators Doc](https://github.com/kubeflow/training-operator)的细节，我们推荐参考官方文档。

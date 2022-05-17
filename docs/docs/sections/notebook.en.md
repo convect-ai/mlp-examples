@@ -2,7 +2,7 @@
 
 ## Start a server
 
-To start a Jupyter Server, log into ConvecHub and click “Start server” if you do not have one, or “My server” if a server already exists. 
+To start a Jupyter Server, log into ConvectHub and click “Start server” if you do not have one, or “My server” if a server already exists. 
 
 Once prompted, choose the specifications of the server that suits your need.
 
@@ -38,14 +38,14 @@ You can also change the kernel while editing a notebook by clicking on the upper
 
 ![Select kernel](Notebook%20s%20b4d80/Untitled%203.png)
 
-You can install additional packages into the enviornment if needed. To do so, launch a terminal app from the launcher and use `conda` to install packages. For example,
+You can install additional packages into the environment if needed. To do so, launch a terminal app from the launcher and use `conda` to install packages. For example,
 
 ```bash
 conda activate default
 conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 
-You can also create new conda environement by 
+You can also create new conda environnement by 
 
 ```bash
 conda create -n my-conda-env python==3.9
