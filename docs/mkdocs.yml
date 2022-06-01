@@ -10,6 +10,7 @@ theme:
       primary: indigo
   features:
     - toc.integrate
+    - navigation.tabs
 
 plugins:
 - i18n:
@@ -24,20 +25,25 @@ plugins:
         build: true
     nav_translations:
       zh:
+        User guide: 使用指南
         "Notebook server": Notebook开发环境
         Collaboration: 多人协作功能
         Dashboards: 看板功能
         "Scale out to computing clusters": 使用算力集群
         "From dev to production": 从开发到生产
         Examples: 使用案例
+        "On-prem deployment": 私有化部署手册
+
 
 nav:
-  - "Notebook server": sections/notebook.md
-  - Collaboration: sections/collaboration.md
-  - Dashboards: sections/dashboard.md
-  - "Scale out to computing clusters": sections/scale_out.md
-  - "From dev to production": sections/from_dev_to_prod.md
+  - User guide:
+    - "Notebook server": sections/notebook.md
+    - Collaboration: sections/collaboration.md
+    - Dashboards: sections/dashboard.md
+    - "Scale out to computing clusters": sections/scale_out.md
+    - "From dev to production": sections/from_dev_to_prod.md
   - Examples: sections/examples.md
+  - "On-prem deployment": sections/on-prem/deployment.md
 
 extra:
   analytics:

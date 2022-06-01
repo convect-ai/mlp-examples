@@ -1,6 +1,6 @@
 # ConvectHub Documentation
 
-# What is ConvectHub
+## What is ConvectHub
 
 ConvectHub is a hosted Jupyter notebook server environment, together with a few productivity tools to expedite the journey of developing and deploying data science solutions.
 
