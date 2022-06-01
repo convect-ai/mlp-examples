@@ -1,0 +1,893 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for ConvectHub">
+      
+      
+      
+      <link rel="icon" href="https://convect.ai/static/convectai/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>On-prem deployment - ConvectHub Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-781LZNZBTS"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-781LZNZBTS",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-781LZNZBTS"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#on-prem-deployment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="ConvectHub Documentation" class="md-header__button md-logo" aria-label="ConvectHub Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ConvectHub Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              On-prem deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../../../sections/on-prem/deployment/" hreflang="zh" class="md-select__link">
+                    Chinese
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="./" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/convect-ai/mlp-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../notebook/" class="md-tabs__link">
+        User guide
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../examples/" class="md-tabs__link">
+      Examples
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      On-prem deployment
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="ConvectHub Documentation" class="md-nav__button md-logo" aria-label="ConvectHub Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ConvectHub Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/convect-ai/mlp-examples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          User guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          User guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook/" class="md-nav__link">
+        Notebook server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../collaboration/" class="md-nav__link">
+        Collaboration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dashboard/" class="md-nav__link">
+        Dashboards
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scale_out/" class="md-nav__link">
+        Scale out to computing clusters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../from_dev_to_prod/" class="md-nav__link">
+        From dev to production
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          On-prem deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        On-prem deployment
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os" class="md-nav__link">
+    OS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    Network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-libs-and-software" class="md-nav__link">
+    Dependency libs and software
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provision-process" class="md-nav__link">
+    Provision process
+  </a>
+  
+    <nav class="md-nav" aria-label="Provision process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-network-connectivity" class="md-nav__link">
+    Check the network connectivity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-provision-repo" class="md-nav__link">
+    Clone provision repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-artifacts" class="md-nav__link">
+    Download artifacts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-ssh-users-and-keys" class="md-nav__link">
+    Set up ssh users and keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-ansible" class="md-nav__link">
+    Install ansible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-the-inventory-file" class="md-nav__link">
+    Prepare the inventory file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smoke-test" class="md-nav__link">
+    Smoke test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-provision-process" class="md-nav__link">
+    Start the provision process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate-convecthub-is-working" class="md-nav__link">
+    Validate ConvectHub is working
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-provisioning-process" class="md-nav__link">
+    Configure the provisioning process
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the provisioning process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvidia-driver" class="md-nav__link">
+    Nvidia driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-ports-to-serve-convecthub" class="md-nav__link">
+    Change ports to serve ConvectHub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/convect-ai/mlp-examples/edit/master/docs/sections/on-prem/deployment.en.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="on-prem-deployment">On-prem deployment</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This guide walks you through how to spawn a ConvectHub on a cluster of on-prem machines.</p>
+<p>There are three types of machines that are involved during the provision process:</p>
+<ol>
+<li><code>Provisioner</code> -- This is not a computing node but rather a machine that used by an admin to trigger and control the provisioning process.</li>
+<li><code>Master</code> node -- This is a node that hosts the mission-critical services such as ingress, cluster database, device-plugins, etc. In an HA setting, there can be multiple master nodes.</li>
+<li><code>Worker</code> node -- This is a node that hosts the computing workloads such as a user notebook instance, a ML training job, etc.</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="hardware">Hardware</h3>
+<p>Minimum requirements 2 cores, 4GB memory, 10GB storage space for <code>Master</code> and <code>Worker</code>. </p>
+<p>1 core, 4GB memory, 25GB storage for <code>Provisioner</code>.</p>
+<h3 id="os">OS</h3>
+<p>We current support Ubuntu (&gt;=16.04) as the host OS for <code>Master</code> and <code>Worker</code>. CentOS support is under progress.</p>
+<p>On your node, make sure you can install system libs by executing</p>
+<pre><code class="language-sh">apt update
+apt install &lt;LIB_NAME&gt;
+</code></pre>
+<p>If you have public internet access from your nodes, this is done by visiting the official apt repo.
+If you have a private network setting, then configure a mirror apt repo and point your system to use it by modifying <code>/etc/apt/sources.list</code>.</p>
+<p>We recommend to use a linux OS on <code>Provisioner</code>. If you are using Windows, we commend to check out <a href="https://docs.microsoft.com/en-us/windows/wsl/about">WSL</a>.</p>
+<h3 id="network">Network</h3>
+<p>We require the following ports to be accessible by each other between any two nodes for <code>Master</code> and <code>Worker</code>.</p>
+<table>
+<thead>
+<tr>
+<th>PROTOCOL</th>
+<th>PORT</th>
+<th>SOURCE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP</td>
+<td>6443</td>
+<td>K3s agent nodes</td>
+<td>Kubernetes API Server</td>
+</tr>
+<tr>
+<td>UDP</td>
+<td>8472</td>
+<td>K3s server and agent nodes</td>
+<td>Required only for Flannel VXLAN</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>10250</td>
+<td>K3s server and agent nodes</td>
+<td>Kubelet metrics</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>2379-2380</td>
+<td>K3s server nodes</td>
+<td>Required only for HA with embedded etcd</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>80</td>
+<td>ConvectHub</td>
+<td>Required to visit ConvectHub via http. Can be configurable</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>443</td>
+<td>ConvectHub</td>
+<td>Required to visit ConvectHub via https. Can be configurable</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>22</td>
+<td><code>Provisioner</code></td>
+<td>Required by <code>Provisioner</code> to visit <code>Master</code> and <code>Worker</code> via SSH</td>
+</tr>
+</tbody>
+</table>
+<p>Internet access on <code>Master</code> and <code>Worker</code> is optional, but required on <code>Provisioner</code>. 
+We require <code>Provisioner</code> to be able to visit <code>Master</code> and <code>Worker</code> through their intranet addresses, i.e., <code>Provisioner</code> is connected to the private network. </p>
+<h3 id="dependency-libs-and-software">Dependency libs and software</h3>
+<p>We require the following libs and software to be pre-configured on <code>Provisioner</code></p>
+<table>
+<thead>
+<tr>
+<th>MACHINE</th>
+<th>Software/lib name</th>
+<th>Installation guide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Provisioner</code></td>
+<td>Docker</td>
+<td><a href="https://docs.docker.com/get-docker/">Official guide</a></td>
+</tr>
+<tr>
+<td><code>Provisioner</code></td>
+<td>python3, python3-pip, python3-venv</td>
+<td><a href="https://www.python.org/downloads/">Official guide</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="provision-process">Provision process</h2>
+<p>We assume all the following steps are done on <code>Provisioner</code> machine unless explicitly specified. </p>
+<h3 id="check-the-network-connectivity">Check the network connectivity</h3>
+<p>On <code>Provisioner</code>, first make sure you can visit internet</p>
+<pre><code class="language-sh">ping -c 3 convect.ai
+</code></pre>
+<h3 id="clone-provision-repo">Clone provision repo</h3>
+<p>TODO: need a better way to distribute it</p>
+<pre><code class="language-sh">$ git clone https://github.com/convect-ai/mlp.git
+
+$ cd mlp/baremetal/airgap-k3s
+</code></pre>
+<h3 id="download-artifacts">Download artifacts</h3>
+<p>TODO: need a better way to distribute it</p>
+<pre><code class="language-sh">$ aws s3 sync s3://convect-mlp-assets/bin/ shared/bin/
+</code></pre>
+<p>It may take a while depending on your internet connection.</p>
+<h3 id="set-up-ssh-users-and-keys">Set up ssh users and keys</h3>
+<p>Make sure you can ssh into <code>Master</code> and <code>Worker</code> from <code>Provisioner</code>. 
+We recommend using a passwordless login method and a unified user name for each machine (Refer to <a href="https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server">this guide</a> if you are not sure how to do it).</p>
+<p>For the user, we require <code>sudo</code> permission and recommend disabling the password prompt by creating a file</p>
+<pre><code class="language-sh">echo &quot;$USER ALL=(ALL:ALL) NOPASSWD: ALL&quot; | sudo tee /etc/sudoers.d/$USER
+</code></pre>
+<h3 id="install-ansible">Install <code>ansible</code></h3>
+<p>We use <a href="https://www.ansible.com/"><code>ansible</code></a> to automate the provision process. To install it</p>
+<pre><code class="language-sh"># create a virtualenv 
+$ python3 -m venv .venv 
+$ source activate .venv/bin/activate
+
+# upgrade pip if needed 
+$ pip install --upgrade pip 
+
+# install ansible
+$ pip install ansible
+
+# make sure the installation is successful
+$ ansible --version
+</code></pre>
+<h3 id="prepare-the-inventory-file">Prepare the inventory file</h3>
+<p>An inventory file declares the fleet of machines (their address, how to access them) and their roles in the deployment. </p>
+<p>A sample file</p>
+<pre><code>worker2 ansible_ssh_user=vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2201 ansible_ssh_private_key_file='~/.ssh/id_rsa' my_iface=eth1 has_gpu=true
+worker1 ansible_ssh_user=vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200 ansible_ssh_private_key_file='~/.ssh/id_rsa' my_iface=eth1
+master ansible_ssh_user=vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222 ansible_ssh_private_key_file='~/.ssh/id_rsa' my_iface=eth1
+
+[driver]
+master
+
+[worker]
+worker1
+worker2
+
+[registry]
+master
+
+[all:vars]
+convect_workdir=/tmp/convecthub
+convect_token=k3s_hub_token
+has_gpu=false
+jhub_config_path=thu-vars/jupyterhub.yaml
+</code></pre>
+<p>The first line </p>
+<pre><code>worker2 ansible_ssh_user=vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2201 ansible_ssh_private_key_file='~/.ssh/id_rsa' my_iface=eth1 has_gpu=true
+</code></pre>
+<p>declares a machine called <code>worker2</code>. Some notable fields </p>
+<ul>
+<li><code>ansible_ssh_user</code> - The user name to use when <code>ssh</code> into the machine</li>
+<li><code>ansible_ssh_host</code> - The ip address or host name to use when <code>ssh</code> into the machine</li>
+<li><code>ansible_ssh_port</code> - The port to use when <code>ssh</code> into the machine. Default = <code>22</code></li>
+<li><code>ansible_ssh_private_key_file</code> - The private key to use when <code>ssh</code> into the machine</li>
+<li><code>my_iface</code> - The network interface name on the machine that is connected to the private network. You can run <code>ip a show</code> to see all the available network interface and the binded IP addresses on a machine to figure out the name</li>
+<li><code>has_gpu</code> - Specifies if the machine is equiped with GPU. Default = <code>false</code></li>
+</ul>
+<pre><code>[worker]
+worker1
+worker2
+</code></pre>
+<p>groups the machines <code>worker1</code> and <code>worker2</code> into the <code>worker</code> group. If you have more nodes to join the cluster as <code>workers</code>, put them here.</p>
+<p>For <code>driver</code> group, you usually need one node if HA is not considered.  </p>
+<pre><code>[all:vars]
+convect_workdir=/tmp/convecthub
+convect_token=k3s_hub_token
+has_gpu=false
+jhub_config_path=thu-vars/jupyterhub.yaml
+</code></pre>
+<p>defines some common variables that rarely need change.</p>
+<p>To prepare an inventory file for you own environment, the following steps are recommended:</p>
+<ol>
+<li>Write down the ip addresses / hostnames for all nodes that are used as part of the cluster</li>
+<li>Create a common user that can ssh into each node using a private key from <code>Provisioner</code></li>
+<li>Figure out the network interface name on each node that connects to the main private network if it has multiple interfaces</li>
+<li>For each node, define a line like 
+    <code>worker2 ansible_ssh_user=vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2201 ansible_ssh_private_key_file='~/.ssh/id_rsa' my_iface=eth1 has_gpu=true</code>
+    by substituting <code>ansible_ssh_user</code>, <code>ansible_ssh_host</code>, <code>ansible_ssh_port</code>, <code>ansible_ssh_private_key_file</code>, <code>my_iface</code>, <code>has_gpu</code> to reflect your environment.</li>
+</ol>
+<h3 id="smoke-test">Smoke test</h3>
+<p>Once you have your inventory file defined, say <code>inv.toml</code>, we can check if the configuration is good by running</p>
+<pre><code class="language-sh">$ ansible all -i inv.toml -m ping 
+</code></pre>
+<p>You should be able to see all nodes returning an <code>OK</code> status.</p>
+<h3 id="start-the-provision-process">Start the provision process</h3>
+<p>If you have set up the passwordless sudo permission of the user, then simply run</p>
+<pre><code class="language-sh">ansible-playbook -i inv.toml playbook.yml
+</code></pre>
+<p>otherwise </p>
+<pre><code class="language-sh">ansible-playbook -i inv.toml playbook.yml --extra-vars ansible_sudo_pass=YOUR_PASSWORD
+</code></pre>
+<p>where <code>YOUR_PASSWORD</code> is he password required to execute <code>sudo</code>.</p>
+<p>The provision process usually takes around 30 minutes depending on the number of nodes and your network condition.</p>
+<h2 id="validate-convecthub-is-working">Validate ConvectHub is working</h2>
+<p>Once finished, on <code>Provisioner</code>, open a browser and visit <code>&lt;MASTER_IP&gt;</code>, where <code>&lt;MASTER_IP&gt;</code> is the private IP address of the <code>Master</code> node and verify you can see the login page.</p>
+<h2 id="configure-the-provisioning-process">Configure the provisioning process</h2>
+<h3 id="nvidia-driver">Nvidia driver</h3>
+<p>If you have already configured nvidia display on your nodes, set <code>install_nvidia_driver=false</code> on a machine declaration in the inventory file to skip install the driver automatically. </p>
+<h3 id="docker">Docker</h3>
+<p>If you have already configured docker on your nodes, set <code>install_docker=false</code> on a machine declaration in the inventory file to skip installing docker automatically.</p>
+<p>If you have a private network setting and cannot visit the docker official repo, set <code>docker_repo</code> to point to your mirror, e.g., <code>https://download.docker.com/linux/ubuntu</code></p>
+<h3 id="change-ports-to-serve-convecthub">Change ports to serve ConvectHub</h3>
+<p>If you would like to serve ConvectHub by using non-default ports (e.g., 80 and 443), set <code>http_port=&lt;YOUR_PORT_NUMBER&gt;</code> and <code>https_port=&lt;YOUR_PORT_NUMBER&gt;</code> under <code>[all:vars]</code> section in the inventory file. E.g., </p>
+<pre><code>[all:vars]
+convect_workdir=/tmp/convecthub
+convect_token=k3s_hub_token
+has_gpu=false
+jhub_config_path=thu-vars/jupyterhub.yaml
+http_port=9000
+https_port=9443
+</code></pre>
+<p>will serve the http and https traffic via <code>&lt;MASTER_IP&gt;:9000</code> and <code>&lt;MASTER_IP&gt;:9443</code> respectively.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../examples/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Examples" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Examples
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["toc.integrate", "navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+    
+  </body>
+</html>

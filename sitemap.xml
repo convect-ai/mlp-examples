@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
          <loc>.</loc>
-         <lastmod>2022-05-18</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="zh/"/>
          <xhtml:link rel="alternate" hreflang="en" href="en/"/>
@@ -10,7 +10,7 @@
     </url>
     <url>
          <loc>sections/collaboration/</loc>
-         <lastmod>2022-05-18</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="zh/sections/collaboration/"/>
          <xhtml:link rel="alternate" hreflang="en" href="en/sections/collaboration/"/>
@@ -18,7 +18,7 @@
     </url>
     <url>
          <loc>sections/dashboard/</loc>
-         <lastmod>2022-05-18</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="zh/sections/dashboard/"/>
          <xhtml:link rel="alternate" hreflang="en" href="en/sections/dashboard/"/>
@@ -26,7 +26,7 @@
     </url>
     <url>
          <loc>sections/examples/</loc>
-         <lastmod>2022-05-18</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="zh/sections/examples/"/>
          <xhtml:link rel="alternate" hreflang="en" href="en/sections/examples/"/>
@@ -34,7 +34,7 @@
     </url>
     <url>
          <loc>sections/from_dev_to_prod/</loc>
-         <lastmod>2022-05-18</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="zh/sections/from_dev_to_prod/"/>
          <xhtml:link rel="alternate" hreflang="en" href="en/sections/from_dev_to_prod/"/>
@@ -42,7 +42,7 @@
     </url>
     <url>
          <loc>sections/notebook/</loc>
-         <lastmod>2022-05-18</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="zh/sections/notebook/"/>
          <xhtml:link rel="alternate" hreflang="en" href="en/sections/notebook/"/>
@@ -50,10 +50,18 @@
     </url>
     <url>
          <loc>sections/scale_out/</loc>
-         <lastmod>2022-05-18</lastmod>
+         <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="zh" href="zh/sections/scale_out/"/>
          <xhtml:link rel="alternate" hreflang="en" href="en/sections/scale_out/"/>
+         
+    </url>
+    <url>
+         <loc>sections/on-prem/deployment/</loc>
+         <lastmod>2022-06-01</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="zh" href="zh/sections/on-prem/deployment/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="en/sections/on-prem/deployment/"/>
          
     </url>
 </urlset>
