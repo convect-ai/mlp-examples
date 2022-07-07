@@ -240,6 +240,12 @@ https_port=9443
 will serve the http and https traffic via `<MASTER_IP>:9000` and `<MASTER_IP>:9443` respectively.
 
 
+## Uninstall the deployments
 
+If you would like to uninstall the deployments from your servers, just run 
+
+```sh
+ansible-playbook -i inv.toml reset.yml
+```
 
 

@@ -243,7 +243,10 @@ https_port=9443
 ```
 就会使用`<MASTER_IP>:9000` 和 `<MASTER_IP>:9443` 地址来服务http和https流量。
 
+## 卸载
 
+如需卸载，运行
 
-
-
+```sh
+ansible-playbook -i inv.toml reset.yml 
+```
